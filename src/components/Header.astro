@@ -1,0 +1,118 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/elite-pest-logo.svg";
+
+const links = [
+    { text: "Home", href: "/" },
+    { text: "About Us", href: "/about" },
+    { text: "Services", href: "/services" },
+    { text: "Testimonials", href: "/testimonials" },
+    { text: "Contact", href: "/contact" },
+];
+---
+
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <div
+        class="container-custom flex justify-between items-center h-16 sm:h-20"
+    >
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2 sm:gap-4 group min-w-0">
+            <Image
+                src={logo}
+                alt="Elite Pest Logo"
+                class="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 flex-shrink-0 transition-transform duration-300 group-hover:scale-105"
+            />
+            <div class="flex flex-col justify-center min-w-0">
+                <span
+                    class="text-sm sm:text-xl md:text-2xl font-bold text-[var(--color-primary)] leading-tight"
+                >
+                    Elite Pest
+                </span>
+                <span
+                    class="text-[var(--color-secondary)] font-bold text-[10px] sm:text-lg md:text-xl leading-tight tracking-wider uppercase sm:normal-case sm:tracking-normal"
+                >
+                    Management
+                </span>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-6 lg:space-x-8">
+            {
+                links.map((link) => (
+                    <a
+                        href={link.href}
+                        class="text-[var(--color-text)] hover:text-[var(--color-primary)] font-medium transition-colors"
+                    >
+                        {link.text}
+                    </a>
+                ))
+            }
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+            id="mobile-menu-btn"
+            class="md:hidden text-[var(--color-text)] focus:outline-none p-2 ml-2"
+            aria-label="Toggle Menu"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 sm:h-8 sm:w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-xl transition-all duration-300 ease-in-out"
+        style="top: 100%;"
+    >
+        <div class="flex flex-col p-6 space-y-4">
+            {
+                links.map((link) => (
+                    <a
+                        href={link.href}
+                        class="text-[var(--color-text)] hover:text-[var(--color-primary)] font-semibold text-lg block mobile-link py-2 border-b border-gray-50 last:border-0"
+                    >
+                        {link.text}
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</header>
+
+<script>
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const links = document.querySelectorAll(".mobile-link");
+
+    btn?.addEventListener("click", () => {
+        menu?.classList.toggle("hidden");
+    });
+
+    links.forEach((link) => {
+        link.addEventListener("click", () => {
+            menu?.classList.add("hidden");
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (event) => {
+        const target = event.target as HTMLElement;
+        if (!btn?.contains(target) && !menu?.contains(target)) {
+            menu?.classList.add("hidden");
+        }
+    });
+</script>
