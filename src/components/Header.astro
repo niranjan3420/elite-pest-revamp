@@ -2,6 +2,12 @@
 import { Image } from "astro:assets";
 import logo from "../assets/elite-pest-logo.svg";
 
+const { pathname } = Astro.url;
+const currentPath =
+    pathname.endsWith("/") && pathname !== "/"
+        ? pathname.slice(0, -1)
+        : pathname;
+
 const links = [
     { text: "Home", href: "/" },
     { text: "About Us", href: "/about" },
@@ -39,14 +45,28 @@ const links = [
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-6 lg:space-x-8">
             {
-                links.map((link) => (
-                    <a
-                        href={link.href}
-                        class="text-[var(--color-text)] hover:text-[var(--color-primary)] font-medium transition-colors"
-                    >
-                        {link.text}
-                    </a>
-                ))
+                links.map((link) => {
+                    const isActive = currentPath === link.href;
+                    return (
+                        <a
+                            href={link.href}
+                            class={`font-medium transition-colors relative pb-2 group ${
+                                isActive
+                                    ? "text-[var(--color-primary)]"
+                                    : "text-[var(--color-text)] hover:text-[var(--color-primary)]"
+                            }`}
+                        >
+                            {link.text}
+                            <span
+                                class={`absolute bottom-0 left-0 h-0.5 bg-[var(--color-secondary)] rounded-full transition-all duration-300 ease-out ${
+                                    isActive
+                                        ? "w-full"
+                                        : "w-0 group-hover:w-full"
+                                }`}
+                            />
+                        </a>
+                    );
+                })
             }
         </nav>
 
@@ -80,14 +100,21 @@ const links = [
     >
         <div class="flex flex-col p-6 space-y-4">
             {
-                links.map((link) => (
-                    <a
-                        href={link.href}
-                        class="text-[var(--color-text)] hover:text-[var(--color-primary)] font-semibold text-lg block mobile-link py-2 border-b border-gray-50 last:border-0"
-                    >
-                        {link.text}
-                    </a>
-                ))
+                links.map((link) => {
+                    const isActive = currentPath === link.href;
+                    return (
+                        <a
+                            href={link.href}
+                            class={`text-lg block mobile-link py-2 px-3 rounded-lg border-b border-gray-50 last:border-0 transition-all duration-200 ${
+                                isActive
+                                    ? "text-[var(--color-primary)] font-bold bg-blue-50"
+                                    : "text-[var(--color-text)] font-semibold hover:bg-gray-50 hover:text-[var(--color-primary)]"
+                            }`}
+                        >
+                            {link.text}
+                        </a>
+                    );
+                })
             }
         </div>
     </div>
