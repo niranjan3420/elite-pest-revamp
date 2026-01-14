@@ -1,12 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import termiteImg from "../assets/images/termite-inspection.jpg";
-import xtermImg from "../assets/images/xterm-baiting.jpg";
+import xtermImg from "../assets/images/xterm-baiting.png";
 import soilImg from "../assets/images/soil-treatment.png";
 import correctiveImg from "../assets/images/slab-injection.png";
 import cockroachImg from "../assets/images/cockroach-treatment.png";
-import mosquitoImg from "../assets/images/mosquito-treatment.jpg";
-import monitoringImg from "../assets/images/monitoring-station.jpg";
+import mosquitoImg from "../assets/images/mosquitoes-inspection.png";
+import monitoringImg from "../assets/images/monitoring-station.png";
 import otherPestsImg from "../assets/images/other-pests.png";
 
 const services = [
@@ -76,13 +76,16 @@ const services = [
 
         <!-- Services Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service) => (
+            {services.map((service, index) => (
                 <article class="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
                     <!-- Image Container with 1.3:1 Aspect Ratio -->
                     <div class="relative overflow-hidden" style="aspect-ratio: 1.3 / 1;">
                         <Image
                             src={service.image}
                             alt={service.title}
+                            width={800}
+                            height={615}
+                            loading={index < 2 ? "eager" : "lazy"}
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

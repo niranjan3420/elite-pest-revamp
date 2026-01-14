@@ -1,9 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import neaLogo from "../assets/images/nea-registered.gif";
 import bizsafeLogo from "../assets/images/bizsafeLogo.gif";
 import spmaLogo from "../assets/images/spma.gif";
 import spmaUpgradedLogo from "../assets/images/spma_logo_2.gif";
 import termguardLogo from "../assets/images/termguard.gif";
+import agendaLogo from "../assets/images/Agenda 10SC - Termiticide.jpg";
+import altrisetLogo from "../assets/images/Altriset - Termiticide.jpg";
+import exterminexLogo from "../assets/images/Exterminex - Termite Bait.jpeg";
+import itrakerLogo from "../assets/images/iTraker Pro - Termite Detection Equipment.png";
 ---
 
 <section id="about" class="py-20 bg-white">
@@ -59,14 +64,14 @@ import termguardLogo from "../assets/images/termguard.gif";
             >
                 Our Accreditations
             </h3>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
+            <div class="flex flex-wrap justify-center gap-10 items-start">
                 <!-- XTerm -->
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="w-24 h-24 mb-4 flex items-center justify-center"
+                        class="w-32 h-32 mb-4 flex items-center justify-center"
                     >
-                        <img
-                            src={termguardLogo.src}
+                        <Image
+                            src={termguardLogo}
                             alt="XTerm Authorised Installer"
                             class="max-h-full max-w-full object-contain"
                         />
@@ -74,7 +79,9 @@ import termguardLogo from "../assets/images/termguard.gif";
                     <div class="font-bold text-gray-900 leading-tight">
                         XTerm
                     </div>
-                    <div class="text-sm text-gray-500">
+                    <div
+                        class="text-xs font-medium text-gray-600 bg-gray-50 px-3 py-1 rounded-full mt-2 inline-block shadow-sm border border-gray-100"
+                    >
                         Authorised Installer
                     </div>
                 </div>
@@ -82,10 +89,10 @@ import termguardLogo from "../assets/images/termguard.gif";
                 <!-- SPMA Member -->
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="w-24 h-24 mb-4 flex items-center justify-center"
+                        class="w-32 h-32 mb-4 flex items-center justify-center"
                     >
-                        <img
-                            src={spmaLogo.src}
+                        <Image
+                            src={spmaLogo}
                             alt="Member of SPMA"
                             class="max-h-full max-w-full object-contain"
                         />
@@ -93,16 +100,20 @@ import termguardLogo from "../assets/images/termguard.gif";
                     <div class="font-bold text-gray-900 leading-tight">
                         Member Of
                     </div>
-                    <div class="text-sm text-gray-500">SPMA</div>
+                    <div
+                        class="text-xs font-medium text-gray-600 bg-gray-50 px-3 py-1 rounded-full mt-2 inline-block shadow-sm border border-gray-100"
+                    >
+                        SPMA
+                    </div>
                 </div>
 
                 <!-- SPMA Upgraded -->
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="w-24 h-24 mb-4 flex items-center justify-center"
+                        class="w-32 h-32 mb-4 flex items-center justify-center"
                     >
-                        <img
-                            src={spmaUpgradedLogo.src}
+                        <Image
+                            src={spmaUpgradedLogo}
                             alt="SPMA Upgraded Accreditated"
                             class="max-h-full max-w-full object-contain"
                         />
@@ -110,16 +121,20 @@ import termguardLogo from "../assets/images/termguard.gif";
                     <div class="font-bold text-gray-900 leading-tight">
                         SPMA Upgraded
                     </div>
-                    <div class="text-sm text-gray-500">Accreditated</div>
+                    <div
+                        class="text-xs font-medium text-gray-600 bg-gray-50 px-3 py-1 rounded-full mt-2 inline-block shadow-sm border border-gray-100"
+                    >
+                        Accreditated
+                    </div>
                 </div>
 
                 <!-- bizSAFE -->
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="w-24 h-24 mb-4 flex items-center justify-center"
+                        class="w-32 h-32 mb-4 flex items-center justify-center"
                     >
-                        <img
-                            src={bizsafeLogo.src}
+                        <Image
+                            src={bizsafeLogo}
                             alt="bizSAFE WSH Council"
                             class="max-h-full max-w-full object-contain"
                         />
@@ -127,16 +142,104 @@ import termguardLogo from "../assets/images/termguard.gif";
                     <div class="font-bold text-gray-900 leading-tight">
                         BizSAFE
                     </div>
-                    <div class="text-sm text-gray-500">WSH Council</div>
+                    <div
+                        class="text-xs font-medium text-gray-600 bg-gray-50 px-3 py-1 rounded-full mt-2 inline-block shadow-sm border border-gray-100"
+                    >
+                        WSH Council
+                    </div>
+                </div>
+
+                <!-- Agenda 10SC -->
+                <div class="flex flex-col items-center text-center">
+                    <div
+                        class="w-32 h-32 mb-4 flex items-center justify-center"
+                    >
+                        <Image
+                            src={agendaLogo}
+                            alt="Agenda 10SC Authorized Applicator"
+                            class="max-h-full max-w-full object-contain"
+                        />
+                    </div>
+                    <div class="font-bold text-gray-900 leading-tight">
+                        Agenda 10SC
+                    </div>
+                    <div
+                        class="text-xs font-medium text-gray-600 bg-gray-50 px-3 py-1 rounded-full mt-2 inline-block shadow-sm border border-gray-100"
+                    >
+                        Authorized Applicator
+                    </div>
+                </div>
+
+                <!-- Altriset -->
+                <div class="flex flex-col items-center text-center">
+                    <div
+                        class="w-32 h-32 mb-4 flex items-center justify-center"
+                    >
+                        <Image
+                            src={altrisetLogo}
+                            alt="Altriset Authorized Applicator"
+                            class="max-h-full max-w-full object-contain"
+                        />
+                    </div>
+                    <div class="font-bold text-gray-900 leading-tight">
+                        Altriset
+                    </div>
+                    <div
+                        class="text-xs font-medium text-gray-600 bg-gray-50 px-3 py-1 rounded-full mt-2 inline-block shadow-sm border border-gray-100"
+                    >
+                        Authorized Applicator
+                    </div>
+                </div>
+
+                <!-- Exterminex -->
+                <div class="flex flex-col items-center text-center">
+                    <div
+                        class="w-32 h-32 mb-4 flex items-center justify-center"
+                    >
+                        <Image
+                            src={exterminexLogo}
+                            alt="Exterminex Authorized Installer"
+                            class="max-h-full max-w-full object-contain"
+                        />
+                    </div>
+                    <div class="font-bold text-gray-900 leading-tight">
+                        Exterminex
+                    </div>
+                    <div
+                        class="text-xs font-medium text-gray-600 bg-gray-50 px-3 py-1 rounded-full mt-2 inline-block shadow-sm border border-gray-100"
+                    >
+                        Authorized Installer
+                    </div>
+                </div>
+
+                <!-- iTrakerPro -->
+                <div class="flex flex-col items-center text-center">
+                    <div
+                        class="w-32 h-32 mb-4 flex items-center justify-center"
+                    >
+                        <Image
+                            src={itrakerLogo}
+                            alt="iTrakerPro Termite Detection"
+                            class="max-h-full max-w-full object-contain"
+                        />
+                    </div>
+                    <div class="font-bold text-gray-900 leading-tight">
+                        iTrakerPro
+                    </div>
+                    <div
+                        class="text-xs font-medium text-gray-600 bg-gray-50 px-3 py-1 rounded-full mt-2 inline-block shadow-sm border border-gray-100"
+                    >
+                        Termite Detection
+                    </div>
                 </div>
 
                 <!-- NEA -->
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="w-24 h-24 mb-4 flex items-center justify-center"
+                        class="w-32 h-32 mb-4 flex items-center justify-center"
                     >
-                        <img
-                            src={neaLogo.src}
+                        <Image
+                            src={neaLogo}
                             alt="NEA Registered"
                             class="max-h-full max-w-full object-contain"
                         />
@@ -144,7 +247,11 @@ import termguardLogo from "../assets/images/termguard.gif";
                     <div class="font-bold text-gray-900 leading-tight">
                         NEA Registered
                     </div>
-                    <div class="text-sm text-gray-500">NEA 199100288E</div>
+                    <div
+                        class="text-xs font-medium text-gray-600 bg-gray-50 px-3 py-1 rounded-full mt-2 inline-block shadow-sm border border-gray-100"
+                    >
+                        NEA 199100288E
+                    </div>
                 </div>
             </div>
         </div>

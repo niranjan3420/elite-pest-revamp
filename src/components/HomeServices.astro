@@ -1,22 +1,27 @@
 ---
+import { Image } from "astro:assets";
+import termiteImg from "../assets/images/termite-inspection.jpg";
+import mosquitoImg from "../assets/images/mosquitoes-inspection.png";
+import cockroachImg from "../assets/images/cockroach-treatment.png";
+
 const services = [
     {
-        title: "Termite Control",
+        title: "Termite Inspections",
         description:
-            "Specialized treatments to eliminate termites and protect your property from structural damage.",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+            "Utilizing Termatrac technology a breakthrough in termite detection using radar-like sensors for accurate, non-destructive results.",
+        image: termiteImg,
     },
     {
-        title: "General Pest Control",
+        title: "Mosquito Management",
         description:
-            "Effective solutions for common household pests including ants, cockroaches, and silverfish.",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7c-2.761 0-5 2.239-5 5v3a5 5 0 0010 0v-3c0-2.761-2.239-5-5-5zM12 7V4M9 5.5l3 1.5 3-1.5M16.5 12H20M16.5 15H19M16.5 9H20M7.5 12H4M7.5 15H5M7.5 9H4" /></svg>`,
+            "Comprehensive protection against mosquito-borne diseases like Dengue and Malaria through expert inspection and targeted treatment.",
+        image: mosquitoImg,
     },
     {
-        title: "Rodent Management",
+        title: "Cockroach Treatment",
         description:
-            "Strategic baiting and trapping to remove rats and mice and prevent re-infestation.",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>`,
+            "Eliminating infestations and common allergens that trigger asthma, ensuring a safe and hygienic environment for your premises.",
+        image: cockroachImg,
     },
 ];
 ---
@@ -34,16 +39,24 @@ const services = [
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {
                 services.map((service) => (
-                    <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-t-4 border-[var(--color-primary)]">
-                        <div class="text-4xl mb-4 bg-[var(--color-bg-alt)] w-16 h-16 rounded-full flex items-center justify-center text-[var(--color-secondary)]">
-                            <Fragment set:html={service.icon} />
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-t-4 border-[var(--color-primary)]">
+                        <div class="relative h-48">
+                            <Image
+                                src={service.image}
+                                alt={service.title}
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                         </div>
-                        <h3 class="text-xl font-bold text-[var(--color-primary)] mb-3">
-                            {service.title}
-                        </h3>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            {service.description}
-                        </p>
+                        <div class="p-8">
+                            <h3 class="text-xl font-bold text-[var(--color-primary)] mb-3">
+                                {service.title}
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                {service.description}
+                            </p>
+                        </div>
                     </div>
                 ))
             }
